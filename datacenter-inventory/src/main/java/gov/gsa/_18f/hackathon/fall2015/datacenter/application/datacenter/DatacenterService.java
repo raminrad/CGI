@@ -16,4 +16,6 @@ public interface DatacenterService {
 
 	Datacenter retrieve(Long id) throws ApplicationException;
 
+	Long create(Datacenter datacenter) throws ApplicationException;
+
 }

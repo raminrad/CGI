@@ -24,4 +24,10 @@ public class DatacenterServiceImpl implements DatacenterService {
 		return null;
 	}
 
+	@Override
+	public Long create(Datacenter datacenter) throws ApplicationException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
