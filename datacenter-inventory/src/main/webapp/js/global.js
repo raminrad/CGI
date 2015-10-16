@@ -1,5 +1,6 @@
 var endpoints = {
-	'datacenters' : 'js/Datacenters.json'
+	'datacenters' : 'js/Datacenters.json',
+	'updateOperation' : 'localhost:8080/datacenter/1/quarter'
 };
 
 (function ($) {
@@ -35,20 +36,23 @@ var endpoints = {
 		});
 
 		$.get(endpoints.datacenters, function(data) {			     
-			     var records = data.data[0].quarterlyData;
+			     //var records = data.data[0].quarterlyData;
+			     var records = data.data;
 
 			     var output = '<table class="table table-bordered table-striped"><thead><tr><th>ID</th><th>Fiscal Year</th><th>Quarter</th><th>Closing Stage</th></tr></thead>';
 
 			     output += '<tbody>';
 			     for (var i = 0; i < records.length; i++) {
-			     	output += '<tr>';
-			     	
-			     	output += '<td>' + records[i].id + '</td>';
-			     	output += '<td>' + records[i].fiscalYear + '</td>';
-			     	output += '<td>' + records[i].quarter + '</td>';
-			     	output += '<td>' + records[i].closingStage + '</td>';
+			     	for (var j = 0; j < records[i].quarterlyData.length; j++) {
+				     	output += '<tr>';
+				     	
+				     	output += '<td>' + records[i].quarterlyData[j].id + '</td>';
+				     	output += '<td>' + records[i].quarterlyData[j].fiscalYear + '</td>';
+				     	output += '<td>' + records[i].quarterlyData[j].quarter + '</td>';
+				     	output += '<td>' + records[i].quarterlyData[j].closingStage + '</td>';
 
-			     	output += '</tr>';
+				     	output += '</tr>';
+			     	}
 			     }
 			     output += '</tbody>';
 
@@ -80,6 +84,49 @@ var endpoints = {
 		$('.navbar-home').click(function(evt) {
 			evt.preventDefault();
 			navigate('.main-menu');
+		});
+
+		$('.update-form form').submit(function(evt) {
+			evt.preventDefault();
+			$.ajax({
+				type: 'POST',
+				url: endpoints.updateOperation,
+				data: {
+					"id" : 1,
+					"fiscalYear" : 2013,
+					"quarter" : "Q1",
+					"fte" : 20.00,
+					"fteCost" : 105.00,
+					"electricityIndcluded" : false,
+					"electricityMetered" : false,
+					"totalPowerCapacity" : null,
+					"totalItPowerCapacity" : 0.00,
+					"averageElectricityUsage" : 0.00,
+					"averageItElectricityUsage" : 0.00,
+					"costPerKilowattHour" : 100.50,
+					"rackCount" : 50,
+					"totalIbmMainframes" : 0,
+					"totalOtherMainframes" : null,
+					"totalWindowsServers" : 2000,
+					"totalUnixServers" : 3,
+					"totalLinuxServers" : null,
+					"totalHpcClusterNodes" : 3,
+					"otherServers" : 0,
+					"totalVirtualHosts" : 0,
+					"totalVirtualOs" : 9,
+					"totalStorage" : 1000.00,
+					"usedStorage" : 500.00,
+					"closingStage" : "Not closing",
+					"closingFiscalYear" : null,
+					"closingQuarter" : null,
+					"realPropertyDisposition" : "test",
+					"totalFloorAreaReclaimed" : 2,
+					"totalDecomissionedServers" : 1,
+					"totalServersMoved" : 100,
+					"overallFteReduction" : 7
+				}
+			});
+			alert('hello');
 		});
 		
 		function validateLogin() {

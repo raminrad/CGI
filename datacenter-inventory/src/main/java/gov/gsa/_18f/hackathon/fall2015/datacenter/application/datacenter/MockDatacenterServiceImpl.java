@@ -1,20 +1,5 @@
 package gov.gsa._18f.hackathon.fall2015.datacenter.application.datacenter;
 
-import gov.gsa._18f.hackathon.fall2015.datacenter.application.ApplicationException;
-import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.Datacenter;
-import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.DatacenterSearchCriteria;
-import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.QuarterlyData;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
-
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.Predicate;
-import org.springframework.stereotype.Service;
-
 /**
  * @author dfladung
  *
