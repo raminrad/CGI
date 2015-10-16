@@ -11,23 +11,28 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Predicate;
 import org.springframework.stereotype.Service;
 
 /**
  * @author dfladung
  *
  */
-@Service("mockDatacenterServiceImpl")
+//@Service("mockDatacenterServiceImpl")
 public class MockDatacenterServiceImpl implements DatacenterService {
 
 	List<Datacenter> results;
 
+	Long seq;
+
 	@PostConstruct
 	public void init() {
+		seq = 0L;
 		results = new ArrayList<Datacenter>();
 
 		Datacenter d1 = new Datacenter();
-		d1.setId(1L);
+		d1.setId(++seq);
 		d1.getDatacenterInformation().setDatacenterId("FDCCI-DC-45736");
 		d1.getDatacenterInformation().setAgencyDataCenterId("FDCCI-DC-2782");
 
@@ -46,7 +51,7 @@ public class MockDatacenterServiceImpl implements DatacenterService {
 		d1.getAddress().setCountry("US");
 
 		QuarterlyData qd = new QuarterlyData();
-		qd.setId(1L);
+		qd.setId(++seq);
 		qd.setFiscalYear(2015);
 		qd.setQuarter("Q1");
 		qd.setTotalDecomissionedServers(16);
@@ -78,8 +83,21 @@ public class MockDatacenterServiceImpl implements DatacenterService {
 	}
 
 	@Override
-	public Datacenter retrieve(Long id) throws ApplicationException {
-		return results.get(0);
+	public Datacenter retrieve(final Long id) throws ApplicationException {
+		return (Datacenter) CollectionUtils.find(results, new Predicate() {
+
+			@Override
+			public boolean evaluate(Object arg) {
+				return ((Datacenter) arg).getId().equals(id);
+			}
+		});
+	}
+
+	@Override
+	public Long create(Datacenter datacenter) throws ApplicationException {
+		datacenter.setId(++seq);
+		results.add(datacenter);
+		return datacenter.getId();
 	}
 
 }

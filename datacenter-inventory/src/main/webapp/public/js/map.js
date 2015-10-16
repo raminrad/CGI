@@ -9,9 +9,23 @@ $(function() {
   }).addTo(map);
 
 
-  var datacenterIcon = L.icon({
+  var smalldatacenterIcon = L.icon({
     iconUrl: 'img/data-center-px-png.png',
-    iconSize: [32, 37],
+    iconSize: [20, 25],
+    iconAnchor: [16, 37],
+    popupAnchor: [0, -28]
+  });
+
+  var mediumdatacenterIcon = L.icon({
+    iconUrl: 'img/data-center-px-png.png',
+    iconSize: [25, 30],
+    iconAnchor: [16, 37],
+    popupAnchor: [0, -28]
+  });
+
+  var largedatacenterIcon = L.icon({
+    iconUrl: 'img/data-center-px-png.png',
+    iconSize: [30, 37],
     iconAnchor: [16, 37],
     popupAnchor: [0, -28]
   });
@@ -23,9 +37,12 @@ $(function() {
     var popupContent = "<b>" + props.City + ", " + props.State + "</b></br>";
     popupContent += "<b>Data Center ID: </b> " + props.Data_Center_ID + "</br>";
     popupContent += "<b>Total Virtual OS:</b> " + props.Total_Virtual_OS + "</br>";
+    popupContent += "<b>Total Windows Servers:</b> " + props.Total_Windows_Servers + "</br>";
+    popupContent += "<b>Total Linux Servers:</b> " + props.Total_Linux_Servers + "</br>";
+    popupContent += "<b>Rack Count:</b> " + props.Rack_Count + "</br>";
     popupContent += "<b>Core Classification:</b> " + props.Core_Classification + "</br>";
+    popupContent += "<b>Gross Floor Area:</b> " + props.Gross_Floor_Area + "</br>";
 
-    console.log(popupContent);
     layer.bindPopup(popupContent);
   }
 
@@ -41,10 +58,18 @@ $(function() {
 
     pointToLayer: function(feature, latlng) {
       return L.marker(latlng, {
-        icon: datacenterIcon
+        icon: getIcon(feature.properties.Gross_Floor_Area)
       });
     }
   }).addTo(map);
+
+  function getIcon(featureGrossFloorArea) {
+    //Natural breaks, haha yeah right, just looked at the numbers real quick HACKATHON!
+    return featureGrossFloorArea > 2000 ? largedatacenterIcon :
+      featureGrossFloorArea > 100 ? mediumdatacenterIcon :
+      featureGrossFloorArea > 0 ? smalldatacenterIcon :
+      smalldatacenterIcon;
+  }
 
 
   /*

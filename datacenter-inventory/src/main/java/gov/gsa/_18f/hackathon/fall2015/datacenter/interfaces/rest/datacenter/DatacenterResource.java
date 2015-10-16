@@ -7,7 +7,9 @@ import gov.gsa._18f.hackathon.fall2015.datacenter.interfaces.rest.BaseResource;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -52,6 +54,20 @@ public class DatacenterResource extends BaseResource {
 	@Path("{id}")
 	public Datacenter retrieve(@PathParam("id") Long id) {
 		try {
+			Datacenter data = datacenterService.retrieve(id);
+			return data;
+		} catch (Exception e) {
+			logger.error(e);
+			throw e;
+		}
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Datacenter create(Datacenter input) {
+		try {
+			Long id = datacenterService.create(input);
 			Datacenter data = datacenterService.retrieve(id);
 			return data;
 		} catch (Exception e) {

@@ -12,10 +12,10 @@
     <title>Placeholder Frontend Data Center Consolidation - 18F Hackathon</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="public/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
     <style>
     body {
         padding-top: 70px;
@@ -173,13 +173,13 @@
     </div>
 
     <!-- jQuery Version 1.11.1 -->
-    <script src="js/jquery.js"></script>
+    <script src="public/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
 
 
-    <script src="js/global.js"></script>
+    <script src="public/js/global.js"></script>
 
     <div class="container content-screen logged-in data-center-selection">
         <h1>Which Data Center?</h1>
@@ -196,6 +196,23 @@
         <iframe src="map.html" />
     </div>
 
+    <div class="container content-screen logged-in update-form">
+        <h1>Update Inventory for:</h1>
+        <h2></h2>
+        <form class="form-horizontal" role="form">
+            <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="form-group">
+                        <label for="inputFiscalYear" class="col-md-4 control-label">Fiscal Year:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="inputFiscalYear" placeholder="2015" type="number">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <iframe src="map.html" />
+    </div>
 </body>
 
 </html>
