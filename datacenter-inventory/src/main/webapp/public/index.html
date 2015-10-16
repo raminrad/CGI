@@ -44,19 +44,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
+                <a class="navbar-brand" href="#">MAX.gov</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">About</a>
+                        <a href="#">Home</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="#">Manage Password</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#">Contact Us</a>
                     </li>
                 </ul>
             </div>
@@ -66,7 +66,7 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container login">
         <div class="alert alert-success" role="alert"><strong>Well done!</strong> You successfully read this important alert message.</div>
 
         <div class="row">
@@ -82,7 +82,7 @@
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" placeholder="Password">
                   </div>
-                  <button type="submit" class="btn btn-primary">Login</button>
+                  <a href="#" class="btn btn-primary login">Login</a>
               </form>
             </div>
             <div class="col-md-6 well">
@@ -108,11 +108,17 @@
     </div>
     <!-- /.container -->
 
+    <div class="logged-in main-menu" style="display: none;">
+        <h1>Hello World</h1>
+    </div>
+
     <!-- jQuery Version 1.11.1 -->
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/global.js"></script>
 
 </body>
 
