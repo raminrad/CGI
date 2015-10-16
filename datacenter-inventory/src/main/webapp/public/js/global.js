@@ -28,6 +28,13 @@ var endpoints = {
 			}
 		});
 
+		$('.data-center-selection a').click(function(evt) {
+			evt.preventDefault();
+			if ($(this).hasClass('update-inventory')) {
+				navigate('.update-form');
+			}
+		});
+
 		$('.manage-password').click(function(evt) {
 			evt.preventDefault();
 			navigate('.forgot-password');
