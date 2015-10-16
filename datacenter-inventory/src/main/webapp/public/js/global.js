@@ -29,7 +29,7 @@
 		}
 
 		function navigate(navClass) {
-			$('.container').hide();
+			$('.content-screen').hide();
 			$(navClass).show();
 		}
 	});
