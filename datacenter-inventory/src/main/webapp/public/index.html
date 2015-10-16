@@ -67,17 +67,42 @@
 
     <!-- Page Content -->
     <div class="container">
+        <div class="alert alert-success" role="alert"><strong>Well done!</strong> You successfully read this important alert message.</div>
 
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>A Bootstrap Starter Template</h1>
-                <p class="lead">Complete with pre-defined file paths that you won't have to change!</p>
-                <ul class="list-unstyled">
-                    <li>Bootstrap v3.3.1</li>
-                    <li>jQuery v1.11.1</li>
-                </ul>
+            <h1>Login with Your...</h1>
+            <div class="col-md-6">
+              <h2>MAX.gov User ID and Password</h2>
+              <form>
+                  <div class="form-group">
+                    <label for="userid">User ID</label>
+                    <input type="text" class="form-control" id="userid" placeholder="User ID">
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Login</button>
+              </form>
+            </div>
+            <div class="col-md-6 well">
+              <h2>PIV or CAC Card</h2>
+              <p>Please make sure your card is plugged into the reader</p>
+              <img src="img/piv.png" width="70%" height="225px">
+           </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+            <div class="federal-warning-text">
+                <p>WARNING: This system contains U.S. Government Data. Unauthorized use of this system is prohibited.</p>
+                <p>This computer system, including all related equipment, networks, and network devices (specifically including Internet access) are provided only for authorized U.S. Government use. U.S. Government computer systems may be monitored for all lawful purposes, including to ensure that their use is authorized, for management of the system, to facilitate protection against unauthorized access, and to verify security procedures, survivability, and operational security. Monitoring includes active attacks by authorized U.S. Government entities to test or verify the security of this system. During monitoring, information may be examined, recorded, copied and used for authorized purposes. All information, including personal information, placed or sent over this system may be monitored.</p>
+                <p>Use of this computer system, authorized or unauthorized, constitutes consent to monitoring of this system. Unauthorized use may subject you to criminal prosecution. Evidence of unauthorized use collected during monitoring may be used for administrative, criminal, or other adverse action. Use of this system constitutes consent to monitoring for these purposes. </p>
+                <p>Use of this system implies understanding of these terms and conditions.</p>
+                <p>Note — Per our personal privacy policy, no personal information will be collected on this site beyond that provided by you when you registered for a MAX User ID.</p>
             </div>
         </div>
+      </div>
         <!-- /.row -->
 
     </div>
