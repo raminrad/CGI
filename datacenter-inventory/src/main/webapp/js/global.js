@@ -33,24 +33,19 @@ var endpoints = {
 			$(this).get()
 		});
 
-		$.get('js/Datacenters.json', function(data) {
-			     //var auditTrailArray = data.quarterlyData;
-			     console.log(data);
-			     //alert(data.quarterlyData.quarter);
-			     
-			     // output += '';
+		$.get(endpoints.datacenters, function(data) {			     
+			     var records = data.data[0].quarterlyData;
 
-			     var quarterlyData = data.quarterlyData;
-
-			     var output = '<table class="table table-bordered table-striped"><thead><tr><th>ID</th><th>Quarter</th><th>Closing Stage</th></tr></thead>';
+			     var output = '<table class="table table-bordered table-striped"><thead><tr><th>ID</th><th>Fiscal Year</th><th>Quarter</th><th>Closing Stage</th></tr></thead>';
 
 			     output += '<tbody>';
-			     for (var i = 0; i < quarterlyData.length; i++) {
+			     for (var i = 0; i < records.length; i++) {
 			     	output += '<tr>';
 			     	
-			     	output += '<td>' + data.quarterlyData[i].id + '</td>';
-			     	output += '<td>' + data.quarterlyData[i].quarter + '</td>';
-			     	output += '<td>' + data.quarterlyData[i].closingStage + '</td>';
+			     	output += '<td>' + records[i].id + '</td>';
+			     	output += '<td>' + records[i].fiscalYear + '</td>';
+			     	output += '<td>' + records[i].quarter + '</td>';
+			     	output += '<td>' + records[i].closingStage + '</td>';
 
 			     	output += '</tr>';
 			     }
@@ -61,7 +56,7 @@ var endpoints = {
 			     $('.audit-trail .content').html(output);
 			});
 
-// TOOD: find out why this event is not firing
+		// TOOD: find out why this event is not firing
 		$('.data-center-selection a').click(function(evt) {
 			evt.preventDefault();
 			if ($(this).hasClass('update-inventory')) {
