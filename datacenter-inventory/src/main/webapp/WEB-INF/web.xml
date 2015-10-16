@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+	<!-- ===================================================================================== -->
+	<!-- Spring -->
+	<!-- ===================================================================================== -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>			
+			classpath:spring/components.xml
+			classpath:spring/security.xml				
+        </param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- ===================================================================================== -->
+	<!-- Jersey REST framework -->
+	<!-- ===================================================================================== -->
+	<servlet>
+		<servlet-name>SpringApplication</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>gov.gsa._18f.hackathon.fall2015.datacenter.interfaces.rest.RestConfiguration</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SpringApplication</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+	<!-- ===================================================================================== -->
+	<!-- Hibernate Filter -->
+	<!-- ===================================================================================== -->
+	<filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+		<init-param>
+			<param-name>sessionFactoryBeanName</param-name>
+			<param-value>datacenterSessionFactory</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>/rest/*</url-pattern>
+	</filter-mapping>
+	<welcome-file-list>
+		<welcome-file>public/index.html</welcome-file>
+	</welcome-file-list>
+</web-app>
