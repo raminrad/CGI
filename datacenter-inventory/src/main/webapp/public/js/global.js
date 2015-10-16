@@ -18,6 +18,8 @@
 			if (userID === 'admin' && password === 'password') {
 				return true;
 			}
+			$('.incorrect').show();
+
 			return false;
 		}
 	});
