@@ -13,8 +13,8 @@ import gov.gsa._18f.hackathon.fall2015.datacenter.domain.common.BaseEntity;
  */
 @Entity
 @Access(AccessType.FIELD)
-@Table(name = "non_core_subcategories")
-public class NonCoreSubcategory extends BaseEntity {
+@Table(name = "colocation_provider_types")
+public class ColocationProviderType extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
