@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>gov.gsa._18f.hackathon.fall2015</groupId>
-	<artifactId>datacenter-consolidation</artifactId>
+	<artifactId>datacenter-inventory</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>GSA 18f Fall 2015 Hackathon - Datacenter Consolidation</name>
+	<name>GSA 18f Fall 2015 Hackathon - Datacenter Inventory</name>
 	<url>https://18f.gsa.gov/</url>
 	<organization>
 		<name>18F Digital Services Delivery</name>
