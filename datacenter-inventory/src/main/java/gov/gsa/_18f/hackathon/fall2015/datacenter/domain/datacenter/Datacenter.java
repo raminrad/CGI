@@ -2,6 +2,7 @@ package gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter;
 
 import gov.gsa._18f.hackathon.fall2015.datacenter.domain.common.BaseEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Access;
@@ -46,6 +47,7 @@ public class Datacenter extends BaseEntity {
 		datacenterInformation = new DatacenterInformation();
 		address = new Address();
 		servicesInformation = new ServicesInformation();
+		quarterlyData = new ArrayList<QuarterlyData>();
 	}
 
 	@Override
