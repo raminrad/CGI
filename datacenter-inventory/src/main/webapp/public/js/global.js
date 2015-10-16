@@ -1,3 +1,7 @@
+var endpoints = {
+	'datacenters' : 'js/Datacenters.json'
+};
+
 (function ($) {
 	$(document).ready(function() {
 		$('.login').on('click', function(evt) {
@@ -34,7 +38,7 @@
 		function initScreen(navClass) {
 			if (navClass == '.data-center-selection') {
 				var datacenters = $.ajax({
-					url: 'js/Datacenters.json'
+					url: endpoints.datacenters
 				}).success(function(result) {
 					console.log(result);
 					$.each(result.data, function(key, value) {
