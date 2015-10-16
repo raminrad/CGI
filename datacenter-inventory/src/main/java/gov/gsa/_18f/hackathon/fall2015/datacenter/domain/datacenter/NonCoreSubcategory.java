@@ -1,5 +1,7 @@
 package gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter;
 
+import javax.persistence.Embeddable;
+
 /**
  * @author dfladung
  *

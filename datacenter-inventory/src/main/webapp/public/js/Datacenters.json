@@ -1,0 +1,28 @@
+{
+  "data" : [ {
+    "id" : 1,
+    "datacenterInformation" : {
+      "datacenterName" : "3R-VA0080ZZ",
+      "datacenterId" : "FDCCI-DC-45736",
+      "agencyDataCenterId" : "FDCCI-DC-2782",
+      "legacyId" : null,
+      "publishedName" : "Sterling, VA",
+      "status" : "Existing",
+      "validity" : "ValidFacility",
+      "agencyAbbreviation" : "GSA",
+      "component" : "FAS",
+      "officeName" : null,
+      "classification" : "NonCore",
+      "subcategory" : null
+    },
+    "providerInformation" : { },
+    "address" : {
+      "city" : "Sterling",
+      "state" : "MD",
+      "province" : null,
+      "zip" : "20166",
+      "country" : null
+    },
+    "quarterlyData" : null
+  } ]
+}
