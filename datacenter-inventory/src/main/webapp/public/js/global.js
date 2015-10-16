@@ -28,6 +28,39 @@ var endpoints = {
 			}
 		});
 
+		$('.audit-trail a').click(function(evt) {
+			evt.preventDefault();
+			$(this).get()
+		});
+
+		$.get('js/Datacenters.json', function(data) {
+			     //var auditTrailArray = data.quarterlyData;
+			     console.log(data);
+			     //alert(data.quarterlyData.quarter);
+			     
+			     // output += '';
+
+			     var quarterlyData = data.quarterlyData;
+
+			     var output = '<table class="table table-bordered table-striped"><thead><tr><th>ID</th><th>Quarter</th><th>Closing Stage</th></tr></thead>';
+
+			     output += '<tbody>';
+			     for (var i = 0; i < quarterlyData.length; i++) {
+			     	output += '<tr>';
+			     	
+			     	output += '<td>' + data.quarterlyData[i].id + '</td>';
+			     	output += '<td>' + data.quarterlyData[i].quarter + '</td>';
+			     	output += '<td>' + data.quarterlyData[i].closingStage + '</td>';
+
+			     	output += '</tr>';
+			     }
+			     output += '</tbody>';
+
+			     output += '</table>';
+
+			     $('.audit-trail .content').html(output);
+			});
+
 		$('.manage-password').click(function(evt) {
 			evt.preventDefault();
 			navigate('.forgot-password');
