@@ -1,6 +1,6 @@
 var endpoints = {
-	'datacenters' : 'js/Datacenters.json',
-	'updateOperation' : 'localhost:8080/datacenter/1/quarter'
+	'datacenters' : 'http://localhost:8080/datacenter-inventory/rest/datacenter',
+	'updateOperation' : 'http://localhost:8080/datacenter-inventory/rest/datacenter/1/quarter'
 };
 
 (function ($) {
@@ -91,9 +91,11 @@ var endpoints = {
 			$.ajax({
 				type: 'POST',
 				url: endpoints.updateOperation,
-				data: {
+				dataType: "json",
+				contentType: "application/json",
+				data: JSON.stringify({
 					"id" : 1,
-					"fiscalYear" : 2013,
+					"fiscalYear" : 2016,
 					"quarter" : "Q1",
 					"fte" : 20.00,
 					"fteCost" : 105.00,
@@ -124,7 +126,7 @@ var endpoints = {
 					"totalDecomissionedServers" : 1,
 					"totalServersMoved" : 100,
 					"overallFteReduction" : 7
-				}
+				})
 			});
 			alert('hello');
 		});
