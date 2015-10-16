@@ -1,12 +1,9 @@
 package gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter;
 
+import gov.gsa._18f.hackathon.fall2015.datacenter.domain.common.BaseValueObject;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-
-import gov.gsa._18f.hackathon.fall2015.datacenter.domain.common.BaseEntity;
-import gov.gsa._18f.hackathon.fall2015.datacenter.domain.common.BaseValueObject;
 
 /**
  * @author dfladung
@@ -33,12 +30,10 @@ public class DatacenterInformation extends BaseValueObject {
 	String publishedName;
 
 	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
-	RecordStatus status;
+	String status;
 
 	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
-	RecordValidity validity;
+	String validity;
 
 	@Column(name = "agency_abbreviation", nullable = false)
 	String agencyAbbreviation;
@@ -50,12 +45,10 @@ public class DatacenterInformation extends BaseValueObject {
 	String officeName;
 
 	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
-	CoreClassification classification;
+	String classification;
 
-	@Column()
-	@Enumerated(EnumType.STRING)
-	NonCoreSubcategory subcategory;
+	@Column
+	String subcategory;
 
 	@Override
 	public String toString() {
@@ -104,22 +97,6 @@ public class DatacenterInformation extends BaseValueObject {
 		this.publishedName = publishedName;
 	}
 
-	public RecordStatus getStatus() {
-		return status;
-	}
-
-	public void setStatus(RecordStatus status) {
-		this.status = status;
-	}
-
-	public RecordValidity getValidity() {
-		return validity;
-	}
-
-	public void setValidity(RecordValidity validity) {
-		this.validity = validity;
-	}
-
 	public String getAgencyAbbreviation() {
 		return agencyAbbreviation;
 	}
@@ -144,19 +121,35 @@ public class DatacenterInformation extends BaseValueObject {
 		this.officeName = officeName;
 	}
 
-	public CoreClassification getClassification() {
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getValidity() {
+		return validity;
+	}
+
+	public void setValidity(String validity) {
+		this.validity = validity;
+	}
+
+	public String getClassification() {
 		return classification;
 	}
 
-	public void setClassification(CoreClassification classification) {
+	public void setClassification(String classification) {
 		this.classification = classification;
 	}
 
-	public NonCoreSubcategory getSubcategory() {
+	public String getSubcategory() {
 		return subcategory;
 	}
 
-	public void setSubcategory(NonCoreSubcategory subcategory) {
+	public void setSubcategory(String subcategory) {
 		this.subcategory = subcategory;
 	}
 

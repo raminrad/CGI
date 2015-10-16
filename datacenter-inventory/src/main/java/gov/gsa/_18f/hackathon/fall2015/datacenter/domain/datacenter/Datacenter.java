@@ -1,8 +1,8 @@
 package gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter;
 
-import java.util.List;
-
 import gov.gsa._18f.hackathon.fall2015.datacenter.domain.common.BaseEntity;
+
+import java.util.List;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -24,7 +24,6 @@ import org.hibernate.annotations.FetchMode;
 @Entity
 @Access(AccessType.FIELD)
 @Table(name = "datacenters")
-@org.hibernate.annotations.Table(appliesTo = "datacenters")
 public class Datacenter extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
@@ -33,10 +32,10 @@ public class Datacenter extends BaseEntity {
 	DatacenterInformation datacenterInformation;
 
 	@Embedded
-	ProviderInformation providerInformation;
+	Address address;
 
 	@Embedded
-	Address address;
+	ServicesInformation servicesInformation;
 
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, orphanRemoval = true)
 	@Fetch(value = FetchMode.SUBSELECT)
@@ -45,14 +44,14 @@ public class Datacenter extends BaseEntity {
 
 	public Datacenter() {
 		datacenterInformation = new DatacenterInformation();
-		providerInformation = new ProviderInformation();
 		address = new Address();
+		servicesInformation = new ServicesInformation();
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Datacenter [datacenterInformation=%s, providerInformation=%s, address=%s]",
-				datacenterInformation, providerInformation, address);
+		return String.format("Datacenter [datacenterInformation=%s, servicesInformation=%s, address=%s]",
+				datacenterInformation, servicesInformation, address);
 	}
 
 	public DatacenterInformation getDatacenterInformation() {
@@ -61,14 +60,6 @@ public class Datacenter extends BaseEntity {
 
 	public void setDatacenterInformation(DatacenterInformation datacenterInformation) {
 		this.datacenterInformation = datacenterInformation;
-	}
-
-	public ProviderInformation getProviderInformation() {
-		return providerInformation;
-	}
-
-	public void setProviderInformation(ProviderInformation providerInformation) {
-		this.providerInformation = providerInformation;
 	}
 
 	public Address getAddress() {
@@ -85,6 +76,14 @@ public class Datacenter extends BaseEntity {
 
 	public void setQuarterlyData(List<QuarterlyData> quarterlyData) {
 		this.quarterlyData = quarterlyData;
+	}
+
+	public ServicesInformation getServicesInformation() {
+		return servicesInformation;
+	}
+
+	public void setServicesInformation(ServicesInformation servicesInformation) {
+		this.servicesInformation = servicesInformation;
 	}
 
 }

@@ -1,32 +1,31 @@
 package gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter;
 
+import gov.gsa._18f.hackathon.fall2015.datacenter.domain.common.BaseEntity;
+
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * @author dfladung
  *
  */
-public enum RecordValidity {
+@Entity
+@Access(AccessType.FIELD)
+@Table(name = "record_validities")
+public class RecordValidity extends BaseEntity {
 
-	ValidFacility("Valid Facility"), InvalidFacility("Invalid Facility"), AddedFacility("Added Facility");
+	private static final long serialVersionUID = 1L;
 
-	String label;
+	String name;
 
-	private RecordValidity(String label) {
-		this.label = label;
+	public String getName() {
+		return name;
 	}
 
-	public String getLabel() {
-		return label;
-	}
-
-	public static RecordValidity fromString(String label) {
-		if (label != null) {
-			for (RecordValidity b : RecordValidity.values()) {
-				if (label.equalsIgnoreCase(b.label)) {
-					return b;
-				}
-			}
-		}
-		return null;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
