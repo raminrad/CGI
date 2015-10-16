@@ -3,6 +3,8 @@
 }
 
 .geomap-selection iframe {
-    width: 800px;
-    height: 600px;
+    border: 0 none;
+    height: 800px;
+    overflow: hidden;
+    width: 1008px;
 }
