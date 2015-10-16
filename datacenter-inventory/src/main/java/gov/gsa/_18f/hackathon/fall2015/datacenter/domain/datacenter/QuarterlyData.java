@@ -1,12 +1,17 @@
 package gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter;
 
+import gov.gsa._18f.hackathon.fall2015.datacenter.domain.common.BaseEntity;
+
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import gov.gsa._18f.hackathon.fall2015.datacenter.domain.common.BaseEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author dfladung
@@ -18,23 +23,28 @@ public class QuarterlyData extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "fiscal_year", nullable = false)
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+	@JoinColumn(name = "datacenter_id", nullable = false)
+	@JsonIgnore
+	Datacenter datacenter;
+
+	@Column(name = "fiscal_year")
 	Integer fiscalYear;
 
-	@Column(nullable = false)
+	@Column
 	String quarter;
 
-	@Column(nullable = false)
+	@Column
 	BigDecimal fte;
 
 	@Column(name = "fte_cost")
 	BigDecimal fteCost;
 
-	@Column(name = "electricity_indcluded", nullable = false)
+	@Column(name = "electricity_indcluded")
 	@org.hibernate.annotations.Type(type = "yes_no")
 	Boolean electricityIndcluded;
 
-	@Column(name = "electricity_metered", nullable = false)
+	@Column(name = "electricity_metered")
 	@org.hibernate.annotations.Type(type = "yes_no")
 	Boolean electricityMetered;
 
@@ -53,43 +63,43 @@ public class QuarterlyData extends BaseEntity {
 	@Column(name = "cost_per_kwh")
 	BigDecimal costPerKilowattHour;
 
-	@Column(name = "rack_count", nullable = false)
+	@Column(name = "rack_count")
 	Integer rackCount;
 
-	@Column(name = "total_ibm_mainframes", nullable = false)
+	@Column(name = "total_ibm_mainframes")
 	Integer totalIbmMainframes;
 
-	@Column(name = "total_other_mainframes", nullable = false)
+	@Column(name = "total_other_mainframes")
 	Integer totalOtherMainframes;
 
-	@Column(name = "total_windows_servers", nullable = false)
+	@Column(name = "total_windows_servers")
 	Integer totalWindowsServers;
 
-	@Column(name = "total_unix_servers", nullable = false)
+	@Column(name = "total_unix_servers")
 	Integer totalUnixServers;
 
-	@Column(name = "total_linux_servers", nullable = false)
+	@Column(name = "total_linux_servers")
 	Integer totalLinuxServers;
 
-	@Column(name = "total_hpc_cluster_nodes", nullable = false)
+	@Column(name = "total_hpc_cluster_nodes")
 	Integer totalHpcClusterNodes;
 
-	@Column(name = "other_servers", nullable = false)
+	@Column(name = "other_servers")
 	Integer otherServers;
 
-	@Column(name = "total_virtual_hosts", nullable = false)
+	@Column(name = "total_virtual_hosts")
 	Integer totalVirtualHosts;
 
-	@Column(name = "total_virtual_os", nullable = false)
+	@Column(name = "total_virtual_os")
 	Integer totalVirtualOs;
 
-	@Column(name = "total_storage", nullable = false)
+	@Column(name = "total_storage")
 	BigDecimal totalStorage;
 
-	@Column(name = "used_storage", nullable = false)
+	@Column(name = "used_storage")
 	BigDecimal usedStorage;
 
-	@Column(name = "closing_stage", nullable = false)
+	@Column(name = "closing_stage")
 	String closingStage;
 
 	@Column(name = "closing_fiscal_year")
@@ -112,6 +122,14 @@ public class QuarterlyData extends BaseEntity {
 
 	@Column(name = "overall_fte_reduction")
 	Integer overallFteReduction;
+
+	public Datacenter getDatacenter() {
+		return datacenter;
+	}
+
+	public void setDatacenter(Datacenter datacenter) {
+		this.datacenter = datacenter;
+	}
 
 	public Integer getFiscalYear() {
 		return fiscalYear;

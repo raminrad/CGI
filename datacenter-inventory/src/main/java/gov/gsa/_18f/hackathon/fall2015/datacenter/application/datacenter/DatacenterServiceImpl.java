@@ -4,7 +4,9 @@ import gov.gsa._18f.hackathon.fall2015.datacenter.application.ApplicationErrorCo
 import gov.gsa._18f.hackathon.fall2015.datacenter.application.ApplicationException;
 import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.Datacenter;
 import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.DatacenterSearchCriteria;
+import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.QuarterlyData;
 import gov.gsa._18f.hackathon.fall2015.datacenter.infrastructure.persistence.datacenter.DatacenterRepository;
+import gov.gsa._18f.hackathon.fall2015.datacenter.infrastructure.persistence.datacenter.QuarterlyDataRepository;
 
 import java.util.List;
 
@@ -27,6 +29,9 @@ public class DatacenterServiceImpl implements DatacenterService {
 
 	@Autowired
 	DatacenterRepository repo;
+
+	@Autowired
+	QuarterlyDataRepository qdRepo;
 
 	@Override
 	public List<Datacenter> retrieveByCriteria(DatacenterSearchCriteria criteria) throws ApplicationException {
@@ -60,4 +65,43 @@ public class DatacenterServiceImpl implements DatacenterService {
 
 		}
 	}
+
+	@Override
+	public List<QuarterlyData> retrieveQuartersByCriteria(DatacenterSearchCriteria dsc) throws ApplicationException {
+		try {
+			return qdRepo.retrieveQuartersByCriteria(dsc);
+		} catch (Exception e) {
+			logger.error(e);
+			throw new ApplicationException(ApplicationErrorCode.E_Unknown, "Create failed", e);
+
+		}
+	}
+
+	@Override
+	public QuarterlyData retrieveQuarter(Long id) throws ApplicationException {
+		try {
+			return qdRepo.find(id);
+		} catch (Exception e) {
+			logger.error(e);
+			throw new ApplicationException(ApplicationErrorCode.E_Unknown, "Create failed", e);
+
+		}
+	}
+
+	@Override
+	public Long create(Long id, QuarterlyData quarterlyData) throws ApplicationException {
+		try {
+			Datacenter dc = repo.find(id);
+			quarterlyData.setId(null);
+			quarterlyData.setDatacenter(dc);
+			dc.getQuarterlyData().add(quarterlyData);
+
+			return qdRepo.save(quarterlyData);
+		} catch (Exception e) {
+			logger.error(e);
+			throw new ApplicationException(ApplicationErrorCode.E_Unknown, "Create failed", e);
+
+		}
+	}
+
 }
