@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -40,6 +41,19 @@ public class DatacenterResource extends BaseResource {
 
 			List<Datacenter> data = datacenterService.retrieveByCriteria(search);
 			return new DatacenterList(data);
+		} catch (Exception e) {
+			logger.error(e);
+			throw e;
+		}
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("{id}")
+	public Datacenter retrieve(@PathParam("id") Long id) {
+		try {
+			Datacenter data = datacenterService.retrieve(id);
+			return data;
 		} catch (Exception e) {
 			logger.error(e);
 			throw e;

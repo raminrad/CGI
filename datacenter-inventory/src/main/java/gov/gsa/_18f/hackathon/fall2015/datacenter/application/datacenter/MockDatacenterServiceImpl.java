@@ -3,9 +3,13 @@ package gov.gsa._18f.hackathon.fall2015.datacenter.application.datacenter;
 import gov.gsa._18f.hackathon.fall2015.datacenter.application.ApplicationException;
 import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.Datacenter;
 import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.DatacenterSearchCriteria;
+import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.QuarterlyData;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Service;
 
@@ -16,9 +20,11 @@ import org.springframework.stereotype.Service;
 @Service("mockDatacenterServiceImpl")
 public class MockDatacenterServiceImpl implements DatacenterService {
 
-	@Override
-	public List<Datacenter> retrieveByCriteria(DatacenterSearchCriteria criteria) throws ApplicationException {
-		List<Datacenter> results = new ArrayList<Datacenter>();
+	List<Datacenter> results;
+
+	@PostConstruct
+	public void init() {
+		results = new ArrayList<Datacenter>();
 
 		Datacenter d1 = new Datacenter();
 		d1.setId(1L);
@@ -39,9 +45,41 @@ public class MockDatacenterServiceImpl implements DatacenterService {
 		d1.getAddress().setState("MD");
 		d1.getAddress().setCountry("US");
 
-		results.add(d1);
+		QuarterlyData qd = new QuarterlyData();
+		qd.setId(1L);
+		qd.setFiscalYear(2015);
+		qd.setQuarter("Q1");
+		qd.setTotalDecomissionedServers(16);
+		qd.setRealPropertyDisposition("Q2/2015");
+		qd.setClosingStage("Not Closing");
+		qd.setUsedStorage(new BigDecimal(101));
+		qd.setTotalStorage(new BigDecimal(149));
+		qd.setTotalVirtualOs(49);
+		qd.setTotalVirtualHosts(7);
+		qd.setOtherServers(0);
+		qd.setTotalHpcClusterNodes(3);
+		qd.setTotalLinuxServers(14);
+		qd.setTotalUnixServers(3);
+		qd.setTotalWindowsServers(7);
+		qd.setTotalOtherMainframes(0);
+		qd.setTotalIbmMainframes(0);
+		qd.setRackCount(37);
+		qd.setElectricityMetered(false);
+		qd.setElectricityIndcluded(false);
+		qd.setFte(new BigDecimal(40));
+		d1.getQuarterlyData().add(qd);
 
+		results.add(d1);
+	}
+
+	@Override
+	public List<Datacenter> retrieveByCriteria(DatacenterSearchCriteria criteria) throws ApplicationException {
 		return results;
+	}
+
+	@Override
+	public Datacenter retrieve(Long id) throws ApplicationException {
+		return results.get(0);
 	}
 
 }

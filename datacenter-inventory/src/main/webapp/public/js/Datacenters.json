@@ -1,186 +1,71 @@
 {
-  "data" : [
-    {
-      "id" : 1,
-      "datacenterInformation" : {
-        "datacenterName" : "3R-VA0080ZZ",
-        "datacenterId" : "FDCCI-DC-45736",
-        "agencyDataCenterId" : "FDCCI-DC-2782",
-        "legacyId" : null,
-        "publishedName" : "Sterling, VA",
-        "status" : "Existing",
-        "validity" : "ValidFacility",
-        "agencyAbbreviation" : "GSA",
-        "component" : "FAS",
-        "officeName" : null,
-        "classification" : "NonCore",
-        "subcategory" : null
-      },
-      "providerInformation" : { },
-      "address" : {
-        "city" : "Sterling",
-        "state" : "MD",
-        "province" : null,
-        "zip" : "20166",
-        "country" : null
-      },
-      "quarterlyData" : null
-    },
-    {
-      "id" : 2,
-      "datacenterInformation" : {
-        "datacenterName" : "3R-VA0080ZZ",
-        "datacenterId" : "FDCCI-DC-45736",
-        "agencyDataCenterId" : "FDCCI-DC-2782",
-        "legacyId" : null,
-        "publishedName" : "Sterling, VA",
-        "status" : "Existing",
-        "validity" : "ValidFacility",
-        "agencyAbbreviation" : "GSA",
-        "component" : "FAS",
-        "officeName" : null,
-        "classification" : "NonCore",
-        "subcategory" : null
-      },
-      "providerInformation" : { },
-      "address" : {
-        "city" : "Sterling",
-        "state" : "MD",
-        "province" : null,
-        "zip" : "20166",
-        "country" : null
-      },
-      "quarterlyData" : null
-    },
-    {
-      "id" : 3,
-      "datacenterInformation" : {
-        "datacenterName" : "3R-VA0080ZZ",
-        "datacenterId" : "FDCCI-DC-45736",
-        "agencyDataCenterId" : "FDCCI-DC-2782",
-        "legacyId" : null,
-        "publishedName" : "Sterling, VA",
-        "status" : "Existing",
-        "validity" : "ValidFacility",
-        "agencyAbbreviation" : "GSA",
-        "component" : "FAS",
-        "officeName" : null,
-        "classification" : "NonCore",
-        "subcategory" : null
-      },
-      "providerInformation" : { },
-      "address" : {
-        "city" : "Sterling",
-        "state" : "MD",
-        "province" : null,
-        "zip" : "20166",
-        "country" : null
-      },
-      "quarterlyData" : null
-    },
-    {
-      "id" : 4,
-      "datacenterInformation" : {
-        "datacenterName" : "3R-VA0080ZZ",
-        "datacenterId" : "FDCCI-DC-45736",
-        "agencyDataCenterId" : "FDCCI-DC-2728",
-        "legacyId" : null,
-        "publishedName" : "Sterling, VA",
-        "status" : "Existing",
-        "validity" : "ValidFacility",
-        "agencyAbbreviation" : "GSA",
-        "component" : "FAS",
-        "officeName" : null,
-        "classification" : "NonCore",
-        "subcategory" : null
-      },
-      "providerInformation" : { },
-      "address" : {
-        "city" : "Sterling",
-        "state" : "MD",
-        "province" : null,
-        "zip" : "20166",
-        "country" : null
-      },
-      "quarterlyData" : null
-    },
-    {
-      "id" : 5,
-      "datacenterInformation" : {
-        "datacenterName" : "3R-VA0080ZZ",
-        "datacenterId" : "FDCCI-DC-45736",
-        "agencyDataCenterId" : "FDCCI-DC-2723",
-        "legacyId" : null,
-        "publishedName" : "Sterling, VA",
-        "status" : "Existing",
-        "validity" : "ValidFacility",
-        "agencyAbbreviation" : "GSA",
-        "component" : "FAS",
-        "officeName" : null,
-        "classification" : "NonCore",
-        "subcategory" : null
-      },
-      "providerInformation" : { },
-      "address" : {
-        "city" : "Sterling",
-        "state" : "MD",
-        "province" : null,
-        "zip" : "20166",
-        "country" : null
-      },
-      "quarterlyData" : null
-    },
-    {
-      "id" : 6,
-      "datacenterInformation" : {
-        "datacenterName" : "3R-VA0080ZZ",
-        "datacenterId" : "FDCCI-DC-45736",
-        "agencyDataCenterId" : "FDCCI-DC-2782",
-        "legacyId" : null,
-        "publishedName" : "Sterling, VA",
-        "status" : "Existing",
-        "validity" : "ValidFacility",
-        "agencyAbbreviation" : "GSA",
-        "component" : "FAS",
-        "officeName" : null,
-        "classification" : "NonCore",
-        "subcategory" : null
-      },
-      "providerInformation" : { },
-      "address" : {
-        "city" : "Sterling",
-        "state" : "MD",
-        "province" : null,
-        "zip" : "20166",
-        "country" : null
-      },
-      "quarterlyData" : null
-    },
-    {
-      "id" : 7,
-      "datacenterInformation" : {
-        "datacenterName" : "3R-VA0080ZZ",
-        "datacenterId" : "FDCCI-DC-45736",
-        "agencyDataCenterId" : "FDCCI-DC-2745",
-        "legacyId" : null,
-        "publishedName" : "Sterling, VA",
-        "status" : "Existing",
-        "validity" : "ValidFacility",
-        "agencyAbbreviation" : "GSA",
-        "component" : "FAS",
-        "officeName" : null,
-        "classification" : "NonCore",
-        "subcategory" : null
-      },
-      "providerInformation" : { },
-      "address" : {
-        "city" : "Sterling",
-        "state" : "MD",
-        "province" : null,
-        "zip" : "20166",
-        "country" : null
-      },
-      "quarterlyData" : null
-    }
-  ]
+  "id" : 1,
+  "datacenterInformation" : {
+    "datacenterName" : "3R-VA0080ZZ",
+    "datacenterId" : "FDCCI-DC-45736",
+    "agencyDataCenterId" : "FDCCI-DC-2782",
+    "legacyId" : null,
+    "publishedName" : "Sterling, VA",
+    "status" : "Existing",
+    "validity" : "ValidFacility",
+    "agencyAbbreviation" : "GSA",
+    "component" : "FAS",
+    "officeName" : null,
+    "classification" : "NonCore",
+    "subcategory" : null
+  },
+  "address" : {
+    "city" : "Sterling",
+    "state" : "MD",
+    "province" : null,
+    "zip" : "20166",
+    "country" : "US"
+  },
+  "servicesInformation" : {
+    "ownershipType" : null,
+    "colocationProvider" : null,
+    "colocationProviderType" : null,
+    "governmentWidePartner" : null,
+    "providingServices" : null,
+    "percentServicesPaid" : null,
+    "otherAgenciesServiced" : null,
+    "datacenterTier" : null,
+    "grossFloorArea" : null,
+    "totalCustomerFloorArea" : null,
+    "annualCostPerSquareFt" : null
+  },
+  "quarterlyData" : [ {
+    "id" : 1,
+    "fiscalYear" : 2015,
+    "quarter" : "Q1",
+    "fte" : 40,
+    "fteCost" : null,
+    "electricityIndcluded" : false,
+    "electricityMetered" : false,
+    "totalPowerCapacity" : null,
+    "totalItPowerCapacity" : null,
+    "averageElectricityUsage" : null,
+    "averageItElectricityUsage" : null,
+    "costPerKilowattHour" : null,
+    "rackCount" : 37,
+    "totalIbmMainframes" : 0,
+    "totalOtherMainframes" : 0,
+    "totalWindowsServers" : 7,
+    "totalUnixServers" : 3,
+    "totalLinuxServers" : 14,
+    "totalHpcClusterNodes" : 3,
+    "otherServers" : 0,
+    "totalVirtualHosts" : 7,
+    "totalVirtualOs" : 49,
+    "totalStorage" : 149,
+    "usedStorage" : 101,
+    "closingStage" : "Not Closing",
+    "closingFiscalYear" : null,
+    "closingQuarter" : null,
+    "realPropertyDisposition" : "Q2/2015",
+    "totalFloorAreaReclaimed" : null,
+    "totalDecomissionedServers" : 16,
+    "totalServersMoved" : null,
+    "overallFteReduction" : null
+  } ]
 }

@@ -4,11 +4,14 @@ var endpoints = {
 
 (function ($) {
 	$(document).ready(function() {
-		$('.login').on('click', function(evt) {
+		$('.login-btn').click(function(evt) {
 			evt.preventDefault();
 			
 			if (validateLogin()) {
 				navigate('.main-menu');
+			}
+			else {
+				$('.incorrect').show();
 			}
 		});
 
@@ -29,15 +32,21 @@ var endpoints = {
 			evt.preventDefault();
 			navigate('.forgot-password');
 		});
+
+		$('.contact-link').click(function(evt) {
+			evt.preventDefault();
+			navigate('.contact-us');
+		});
 		
 		function validateLogin() {
 			var userID = $('#userid').val();
 			var password = $('#password').val();
 
+			$('.incorrect').hide();
+
 			if (userID === 'admin' && password === 'password') {
 				return true;
 			}
-			$('.incorrect').show();
 
 			return false;
 		}

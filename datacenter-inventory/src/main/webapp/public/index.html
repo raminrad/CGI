@@ -57,7 +57,7 @@
                         <a href="#" class="manage-password">Manage Password</a>
                     </li>
                     <li>
-                        <a href="#">Contact Us</a>
+                        <a href="#" class="contact-link">Contact Us</a>
                     </li>
                 </ul>
             </div>
@@ -83,7 +83,7 @@
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" placeholder="Password">
                   </div>
-                  <a href="#" class="btn btn-primary login">Login</a>
+                  <a href="#" class="btn btn-primary login-btn">Login</a>
               </form>
             </div>
             <div class="col-md-6 well">
@@ -117,6 +117,7 @@
                     <li><a href="#" class="data-center" dest="data-center-selection" operation="update">Update a Data Center's Inventory</a></li>
                     <li><a href="#" class="export-data" dest="export-data-selection">Export Data for OMB</a></li>
                     <li><a href="#" class="geomap-view" dest="geomap-selection">GeoMap View</a></li>
+                    <li><a href="#" class="geomap-view" dest="audit-trail">Audit Trail</a></li>
                 </ul>
             </div>
         </div>
@@ -131,6 +132,35 @@
                     <input type="text" class="form-control" id="email" placeholder="Email">
                 </div>
                 <a href="#" class="btn btn-primary">Submit</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container content-screen logged-out contact-us">
+        <h1>Contact Us</h1>
+        <div class="row">
+            <div class="col-md-12 well">
+                <div class="form-group">
+                    <form>
+                      <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Name">
+                      </div>
+                      <div class="form-group">
+                        <label for="title">Enter Title</label>
+                        <input type="text" class="form-control" id="title" placeholder="Title">
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email">
+                      </div>
+                      <div class="form-group">
+                        <label for="title">Description</label>
+                        <textarea class="form-control" id="description" placeholder="Description"></textarea>
+                      </div>
+                      <a href="#" class="btn btn-primary">Submit</a>
+                   </form>
+                </div>
             </div>
         </div>
     </div>

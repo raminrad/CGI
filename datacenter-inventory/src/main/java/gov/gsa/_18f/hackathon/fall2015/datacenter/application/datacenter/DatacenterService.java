@@ -14,4 +14,6 @@ public interface DatacenterService {
 
 	List<Datacenter> retrieveByCriteria(DatacenterSearchCriteria criteria) throws ApplicationException;
 
+	Datacenter retrieve(Long id) throws ApplicationException;
+
 }
