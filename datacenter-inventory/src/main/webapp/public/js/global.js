@@ -1,3 +1,7 @@
+var endpoints = {
+	'datacenters' : 'js/Datacenters.json'
+};
+
 (function ($) {
 	$(document).ready(function() {
 		$('.login').on('click', function(evt) {
@@ -39,11 +43,15 @@
 		function initScreen(navClass) {
 			if (navClass == '.data-center-selection') {
 				var datacenters = $.ajax({
-					url: 'js/Datacenters.json'
+					url: endpoints.datacenters
 				}).success(function(result) {
 					console.log(result);
 					$.each(result.data, function(key, value) {
-						$('.datacenter-list').append('<li>' + value.datacenterInformation.agencyDataCenterId + ' - ' + value.address.city + ' ' + value.address.state + ', ' + value.address.zip + '</li>');
+						$('.datacenter-list').append(
+							'<li>' +
+							'<a href="/update/' + value.id + '" datacenter=' + value.id + '>' + value.datacenterInformation.agencyDataCenterId + '</a>' +
+							' - ' + value.address.city + ' ' + value.address.state + ', ' + value.address.zip + '</li>'
+						);
 					});
 				});
 			}

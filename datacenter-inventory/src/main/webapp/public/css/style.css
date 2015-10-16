@@ -1,3 +1,8 @@
-.logged-in {
+.logged-in, .logged-out {
     display: none;
+}
+
+.geomap-selection iframe {
+    width: 800px;
+    height: 600px;
 }
