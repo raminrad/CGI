@@ -9,6 +9,7 @@ var endpoints = {
 			
 			if (validateLogin()) {
 				navigate('.main-menu');
+				$('.logout-link').show();
 			}
 			else {
 				$('.incorrect').show();
