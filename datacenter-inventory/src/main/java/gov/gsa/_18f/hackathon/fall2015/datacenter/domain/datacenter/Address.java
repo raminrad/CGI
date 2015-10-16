@@ -23,7 +23,7 @@ public class Address extends BaseValueObject {
 	@Column(name = "state_abbreviation", nullable = false)
 	String state;
 
-	@Column(nullable = false)
+	@Column
 	String province;
 
 	@Column(nullable = false, length = 5)

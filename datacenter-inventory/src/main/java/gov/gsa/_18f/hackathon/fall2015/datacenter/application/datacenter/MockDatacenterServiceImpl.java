@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
  * @author dfladung
  *
  */
-@Service("mockDatacenterServiceImpl")
+//@Service("mockDatacenterServiceImpl")
 public class MockDatacenterServiceImpl implements DatacenterService {
 
 	List<Datacenter> results;
