@@ -83,7 +83,7 @@
       "datacenterInformation" : {
         "datacenterName" : "3R-VA0080ZZ",
         "datacenterId" : "FDCCI-DC-45736",
-        "agencyDataCenterId" : "FDCCI-DC-2782",
+        "agencyDataCenterId" : "FDCCI-DC-2728",
         "legacyId" : null,
         "publishedName" : "Sterling, VA",
         "status" : "Existing",
@@ -109,7 +109,7 @@
       "datacenterInformation" : {
         "datacenterName" : "3R-VA0080ZZ",
         "datacenterId" : "FDCCI-DC-45736",
-        "agencyDataCenterId" : "FDCCI-DC-2782",
+        "agencyDataCenterId" : "FDCCI-DC-2723",
         "legacyId" : null,
         "publishedName" : "Sterling, VA",
         "status" : "Existing",
@@ -161,7 +161,7 @@
       "datacenterInformation" : {
         "datacenterName" : "3R-VA0080ZZ",
         "datacenterId" : "FDCCI-DC-45736",
-        "agencyDataCenterId" : "FDCCI-DC-2782",
+        "agencyDataCenterId" : "FDCCI-DC-2745",
         "legacyId" : null,
         "publishedName" : "Sterling, VA",
         "status" : "Existing",
