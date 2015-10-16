@@ -36,20 +36,23 @@ var endpoints = {
 		});
 
 		$.get(endpoints.datacenters, function(data) {			     
-			     var records = data.data[0].quarterlyData;
+			     //var records = data.data[0].quarterlyData;
+			     var records = data.data;
 
 			     var output = '<table class="table table-bordered table-striped"><thead><tr><th>ID</th><th>Fiscal Year</th><th>Quarter</th><th>Closing Stage</th></tr></thead>';
 
 			     output += '<tbody>';
 			     for (var i = 0; i < records.length; i++) {
-			     	output += '<tr>';
-			     	
-			     	output += '<td>' + records[i].id + '</td>';
-			     	output += '<td>' + records[i].fiscalYear + '</td>';
-			     	output += '<td>' + records[i].quarter + '</td>';
-			     	output += '<td>' + records[i].closingStage + '</td>';
+			     	for (var j = 0; j < records[i].quarterlyData.length; j++) {
+				     	output += '<tr>';
+				     	
+				     	output += '<td>' + records[i].quarterlyData[j].id + '</td>';
+				     	output += '<td>' + records[i].quarterlyData[j].fiscalYear + '</td>';
+				     	output += '<td>' + records[i].quarterlyData[j].quarter + '</td>';
+				     	output += '<td>' + records[i].quarterlyData[j].closingStage + '</td>';
 
-			     	output += '</tr>';
+				     	output += '</tr>';
+			     	}
 			     }
 			     output += '</tbody>';
 
