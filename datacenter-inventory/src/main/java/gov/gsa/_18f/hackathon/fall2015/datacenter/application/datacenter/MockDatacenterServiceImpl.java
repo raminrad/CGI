@@ -3,7 +3,9 @@ package gov.gsa._18f.hackathon.fall2015.datacenter.application.datacenter;
 import gov.gsa._18f.hackathon.fall2015.datacenter.application.ApplicationException;
 import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.Datacenter;
 import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.DatacenterSearchCriteria;
+import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.QuarterlyData;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +40,27 @@ public class MockDatacenterServiceImpl implements DatacenterService {
 		d1.getAddress().setZip("20166");
 		d1.getAddress().setState("MD");
 		d1.getAddress().setCountry("US");
+
+		QuarterlyData qd = new QuarterlyData();
+		qd.setTotalDecomissionedServers(16);
+		qd.setRealPropertyDisposition("Q2/2015");
+		qd.setClosingStage("Not Closing");
+		qd.setUsedStorage(new BigDecimal(101));
+		qd.setTotalStorage(new BigDecimal(149));
+		qd.setTotalVirtualOs(49);
+		qd.setTotalVirtualHosts(7);
+		qd.setOtherServers(0);
+		qd.setTotalHpcClusterNodes(3);
+		qd.setTotalLinuxServers(14);
+		qd.setTotalUnixServers(3);
+		qd.setTotalWindowsServers(7);
+		qd.setTotalOtherMainframes(0);
+		qd.setTotalIbmMainframes(0);
+		qd.setRackCount(37);
+		qd.setElectricityMetered(false);
+		qd.setElectricityIndcluded(false);
+		qd.setFte(new BigDecimal(40));
+		d1.getQuarterlyData().add(qd);
 
 		results.add(d1);
 
