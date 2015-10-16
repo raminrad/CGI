@@ -1,7 +1,5 @@
 (function ($) {
 	$(document).ready(function() {
-		//evt.preventDefault();
-
 		$('.login').on('click', function(evt) {
 			evt.preventDefault();
 			

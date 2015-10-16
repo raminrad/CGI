@@ -19,7 +19,7 @@
 	<!-- ====================================================================== -->
 	<context:annotation-config />
 	<context:component-scan base-package="gov.gsa._18f.hackathon.fall2015.datacenter" />
-	<!-- <aop:aspectj-autoproxy proxy-target-class="true" /> -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
 	<!-- ====================================================================== -->
 	<!-- datasource -->
 	<!-- ====================================================================== -->

@@ -6,13 +6,14 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import gov.gsa._18f.hackathon.fall2015.datacenter.domain.common.BaseEntity;
+import gov.gsa._18f.hackathon.fall2015.datacenter.domain.common.BaseValueObject;
 
 /**
  * @author dfladung
  *
  */
 @Embeddable
-public class DatacenterInformation extends BaseEntity {
+public class DatacenterInformation extends BaseValueObject {
 
 	private static final long serialVersionUID = 1L;
 
