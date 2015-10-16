@@ -4,11 +4,14 @@ var endpoints = {
 
 (function ($) {
 	$(document).ready(function() {
-		$('.login').on('click', function(evt) {
+		$('.login-btn').click(function(evt) {
 			evt.preventDefault();
 			
 			if (validateLogin()) {
 				navigate('.main-menu');
+			}
+			else {
+				$('.incorrect').show();
 			}
 		});
 
@@ -31,10 +34,11 @@ var endpoints = {
 			var userID = $('#userid').val();
 			var password = $('#password').val();
 
+			$('.incorrect').hide();
+
 			if (userID === 'admin' && password === 'password') {
 				return true;
 			}
-			$('.incorrect').show();
 
 			return false;
 		}
@@ -52,7 +56,11 @@ var endpoints = {
 				}).success(function(result) {
 					console.log(result);
 					$.each(result.data, function(key, value) {
-						$('.datacenter-list').append('<li>' + value.datacenterInformation.agencyDataCenterId + ' - ' + value.address.city + ' ' + value.address.state + ', ' + value.address.zip + '</li>');
+						$('.datacenter-list').append(
+							'<li>' +
+							'<a href="/update/' + value.id + '" datacenter=' + value.id + '>' + value.datacenterInformation.agencyDataCenterId + '</a>' +
+							' - ' + value.address.city + ' ' + value.address.state + ', ' + value.address.zip + '</li>'
+						);
 					});
 				});
 			}

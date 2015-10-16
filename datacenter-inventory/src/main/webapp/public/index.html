@@ -83,7 +83,7 @@
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" placeholder="Password">
                   </div>
-                  <a href="#" class="btn btn-primary login">Login</a>
+                  <a href="#" class="btn btn-primary login-btn">Login</a>
               </form>
             </div>
             <div class="col-md-6 well">
@@ -116,7 +116,7 @@
                 <ul>
                     <li><a href="#" class="data-center" dest="data-center-selection">Update a Data Center's Inventory</a></li>
                     <li><a href="#" class="export-data" dest="export-data-selection">Export Data for OMB</a></li>
-                    <li><a href="#" class="option-3">Option 3</a></li>
+                    <li><a href="#" class="geomap-view" dest="geomap-selection">GeoMap View</a></li>
                     <li><a href="#" class="option-3">Option 4</a></li>
                 </ul>
             </div>
@@ -182,6 +182,10 @@
                 </ul>
             </div>
         </div>
+    </div>
+
+    <div class="container content-screen logged-in geomap-selection">
+        <iframe src="map.html" />
     </div>
 
 </body>
