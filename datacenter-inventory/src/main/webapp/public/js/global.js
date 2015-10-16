@@ -4,8 +4,7 @@
 			evt.preventDefault();
 			
 			if (validateLogin()) {
-				$('.login').hide();
-				$('.main-menu').show();
+				navigate('.main-menu');
 			}
 		});
 
