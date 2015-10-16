@@ -47,7 +47,11 @@ var endpoints = {
 				}).success(function(result) {
 					console.log(result);
 					$.each(result.data, function(key, value) {
-						$('.datacenter-list').append('<li>' + value.datacenterInformation.agencyDataCenterId + ' - ' + value.address.city + ' ' + value.address.state + ', ' + value.address.zip + '</li>');
+						$('.datacenter-list').append(
+							'<li>' +
+							'<a href="/update/' + value.id + '" datacenter=' + value.id + '>' + value.datacenterInformation.agencyDataCenterId + '</a>' +
+							' - ' + value.address.city + ' ' + value.address.state + ', ' + value.address.zip + '</li>'
+						);
 					});
 				});
 			}
