@@ -11,7 +11,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -40,7 +39,6 @@ public class Datacenter extends BaseEntity {
 
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY, orphanRemoval = true)
 	@Fetch(value = FetchMode.SUBSELECT)
-	@JoinColumn(name = "datacenter_id", nullable = false)
 	List<QuarterlyData> quarterlyData;
 
 	public Datacenter() {

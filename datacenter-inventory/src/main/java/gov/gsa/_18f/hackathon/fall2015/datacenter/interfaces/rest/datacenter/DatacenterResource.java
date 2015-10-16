@@ -3,6 +3,7 @@ package gov.gsa._18f.hackathon.fall2015.datacenter.interfaces.rest.datacenter;
 import gov.gsa._18f.hackathon.fall2015.datacenter.application.datacenter.DatacenterService;
 import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.Datacenter;
 import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.DatacenterSearchCriteria;
+import gov.gsa._18f.hackathon.fall2015.datacenter.domain.datacenter.QuarterlyData;
 import gov.gsa._18f.hackathon.fall2015.datacenter.interfaces.rest.BaseResource;
 
 import java.util.List;
@@ -70,6 +71,32 @@ public class DatacenterResource extends BaseResource {
 			Long id = datacenterService.create(input);
 			Datacenter data = datacenterService.retrieve(id);
 			return data;
+		} catch (Exception e) {
+			logger.error(e);
+			throw e;
+		}
+	}
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("{id}/quarter/{quarterId}")
+	public QuarterlyData retrieveQuarter(@PathParam("id") Long id, @PathParam("quarterId") Long qid) {
+		try {
+			return datacenterService.retrieveQuarter(qid);
+		} catch (Exception e) {
+			logger.error(e);
+			throw e;
+		}
+	}
+
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("{id}/quarter")
+	public QuarterlyData create(@PathParam("id") Long id, QuarterlyData data) {
+		try {
+			Long qid = datacenterService.create(id, data);
+			return datacenterService.retrieveQuarter(qid);
 		} catch (Exception e) {
 			logger.error(e);
 			throw e;

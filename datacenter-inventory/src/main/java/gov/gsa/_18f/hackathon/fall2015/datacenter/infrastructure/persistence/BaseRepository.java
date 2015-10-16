@@ -22,7 +22,7 @@ public abstract class BaseRepository<T extends BaseEntity> {
 	}
 
 	@Autowired
-	protected SessionFactory enepaSessionFactory;
+	protected SessionFactory datacenterSessionFactory;
 
 	@Autowired
 	protected JdbcTemplate jdbcTemplate;
@@ -32,24 +32,25 @@ public abstract class BaseRepository<T extends BaseEntity> {
 
 	@SuppressWarnings("unchecked")
 	public T find(Long id) {
-		return (T) enepaSessionFactory.getCurrentSession().get(clazz, id);
+		return (T) datacenterSessionFactory.getCurrentSession().get(clazz, id);
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<T> findAll() {
-		return enepaSessionFactory.getCurrentSession().createQuery("from " + clazz.getName()).list();
+		return datacenterSessionFactory.getCurrentSession().createQuery("from " + clazz.getName()).list();
 	}
 
 	public Long save(T entity) {
-		enepaSessionFactory.getCurrentSession().save(entity); // save instead of saveOrUpdate: hibernate bug HHH-6776
+		datacenterSessionFactory.getCurrentSession().save(entity); // save instead of saveOrUpdate: hibernate bug
+																	// HHH-6776
 		return entity.getId();
 	}
 
 	public void update(T entity) {
-		enepaSessionFactory.getCurrentSession().merge(entity);
+		datacenterSessionFactory.getCurrentSession().merge(entity);
 	}
 
 	public void delete(T entity) {
-		enepaSessionFactory.getCurrentSession().delete(entity);
+		datacenterSessionFactory.getCurrentSession().delete(entity);
 	}
 }
