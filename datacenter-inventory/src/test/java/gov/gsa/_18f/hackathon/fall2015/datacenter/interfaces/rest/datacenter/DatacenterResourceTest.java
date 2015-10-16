@@ -63,6 +63,12 @@ public class DatacenterResourceTest {
 			d1.getAddress().setZip("20166");
 			d1.getAddress().setState("MD");
 			d1.getAddress().setCountry("US");
+			
+			d1.getServicesInformation().setAnnualCostPerSquareFt(100);
+			d1.getServicesInformation().setColocationProvider(false);
+			d1.getServicesInformation().setGrossFloorArea(1000);
+			d1.getServicesInformation().setOwnershipType("Outsourcing");
+			d1.getServicesInformation().setProvidingServices(false);
 
 			WebTarget target = getClient().target(PATH);
 			Response response = target.request(MediaType.APPLICATION_JSON_TYPE).post(
