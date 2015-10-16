@@ -15,6 +15,14 @@ var endpoints = {
 		$('.main-menu a').click(function(evt) {
 			evt.preventDefault();
 			navigate('.' + $(this).attr('dest'));
+
+			// capture which operation we are selecting a data center for
+			if ($(this).attr('operation') == 'update') {
+				$('.data-center-selection').addClass('update-inventory');
+			}
+			if ($(this).attr('operation') == 'audit') {
+				$('.data-center-selection').addClass('audit-trail');
+			}
 		});
 
 		$('.manage-password').click(function(evt) {
