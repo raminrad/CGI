@@ -12,6 +12,11 @@
 			evt.preventDefault();
 			navigate('.' + $(this).attr('dest'));
 		});
+
+		$('.manage-password').click(function(evt) {
+			evt.preventDefault();
+			navigate('.forgot-password');
+		});
 		
 		function validateLogin() {
 			var userID = $('#userid').val();
