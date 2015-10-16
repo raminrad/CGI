@@ -53,13 +53,16 @@ var endpoints = {
 
 			     output += '</table>';
 
-			     $('.audit-trail .content').html(output);
+			     $('.audit-trail-screen .content').html(output);
 			});
 
 		$('.data-center-selection').on('click', 'a', function(evt) {
 			evt.preventDefault();
 			if ($(this).parents('.data-center-selection').hasClass('update-inventory')) {
-			  navigate('.update-form');
+				navigate('.update-form');
+			}
+			if ($(this).parents('.data-center-selection').hasClass('audit-trail')) {
+				navigate('.audit-trail-screen');
 			}
 		});
 
