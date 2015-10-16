@@ -61,11 +61,10 @@ var endpoints = {
 			     $('.audit-trail .content').html(output);
 			});
 
-// TOOD: find out why this event is not firing
-		$('.data-center-selection a').click(function(evt) {
+		$('.data-center-selection').on('click', 'a', function(evt) {
 			evt.preventDefault();
-			if ($(this).hasClass('update-inventory')) {
-				navigate('.update-form');
+			if ($(this).parents('.data-center-selection').hasClass('update-inventory')) {
+			  navigate('.update-form');
 			}
 		});
 
