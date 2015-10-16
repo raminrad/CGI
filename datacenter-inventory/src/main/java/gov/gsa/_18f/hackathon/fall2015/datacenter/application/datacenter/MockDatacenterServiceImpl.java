@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,9 +20,11 @@ import org.springframework.stereotype.Service;
 @Service("mockDatacenterServiceImpl")
 public class MockDatacenterServiceImpl implements DatacenterService {
 
-	@Override
-	public List<Datacenter> retrieveByCriteria(DatacenterSearchCriteria criteria) throws ApplicationException {
-		List<Datacenter> results = new ArrayList<Datacenter>();
+	List<Datacenter> results;
+
+	@PostConstruct
+	public void init() {
+		results = new ArrayList<Datacenter>();
 
 		Datacenter d1 = new Datacenter();
 		d1.setId(1L);
@@ -42,6 +46,9 @@ public class MockDatacenterServiceImpl implements DatacenterService {
 		d1.getAddress().setCountry("US");
 
 		QuarterlyData qd = new QuarterlyData();
+		qd.setId(1L);
+		qd.setFiscalYear(2015);
+		qd.setQuarter("Q1");
 		qd.setTotalDecomissionedServers(16);
 		qd.setRealPropertyDisposition("Q2/2015");
 		qd.setClosingStage("Not Closing");
@@ -63,8 +70,16 @@ public class MockDatacenterServiceImpl implements DatacenterService {
 		d1.getQuarterlyData().add(qd);
 
 		results.add(d1);
+	}
 
+	@Override
+	public List<Datacenter> retrieveByCriteria(DatacenterSearchCriteria criteria) throws ApplicationException {
 		return results;
+	}
+
+	@Override
+	public Datacenter retrieve(Long id) throws ApplicationException {
+		return results.get(0);
 	}
 
 }
