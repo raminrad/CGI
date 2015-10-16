@@ -18,6 +18,12 @@ public class QuarterlyData extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
+	@Column(name = "fiscal_year", nullable = false)
+	Integer fiscalYear;
+
+	@Column(nullable = false)
+	String quarter;
+
 	@Column(nullable = false)
 	BigDecimal fte;
 
@@ -106,6 +112,22 @@ public class QuarterlyData extends BaseEntity {
 
 	@Column(name = "overall_fte_reduction")
 	Integer overallFteReduction;
+
+	public Integer getFiscalYear() {
+		return fiscalYear;
+	}
+
+	public void setFiscalYear(Integer fiscalYear) {
+		this.fiscalYear = fiscalYear;
+	}
+
+	public String getQuarter() {
+		return quarter;
+	}
+
+	public void setQuarter(String quarter) {
+		this.quarter = quarter;
+	}
 
 	public BigDecimal getFte() {
 		return fte;
