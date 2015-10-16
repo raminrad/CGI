@@ -28,6 +28,7 @@ var endpoints = {
 			}
 		});
 
+// TOOD: find out why this event is not firing
 		$('.data-center-selection a').click(function(evt) {
 			evt.preventDefault();
 			if ($(this).hasClass('update-inventory')) {
@@ -73,7 +74,7 @@ var endpoints = {
 					$.each(result.data, function(key, value) {
 						$('.datacenter-list').append(
 							'<li>' +
-							'<a href="/update/' + value.id + '" datacenter=' + value.id + '>' + value.datacenterInformation.agencyDataCenterId + '</a>' +
+							'<a href="#" datacenter=' + value.id + '>' + value.datacenterInformation.agencyDataCenterId + '</a>' +
 							' - ' + value.address.city + ' ' + value.address.state + ', ' + value.address.zip + '</li>'
 						);
 					});
