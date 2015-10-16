@@ -6,5 +6,5 @@ package gov.gsa._18f.hackathon.fall2015.datacenter.application;
  */
 public enum ApplicationErrorCode {
 
-	E_Unknown
+	E_Unknown, E_InvalidArgument
 }
