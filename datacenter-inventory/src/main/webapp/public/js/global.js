@@ -21,6 +21,11 @@ var endpoints = {
 			evt.preventDefault();
 			navigate('.forgot-password');
 		});
+
+		$('.contact-link').click(function(evt) {
+			evt.preventDefault();
+			navigate('.contact-us');
+		});
 		
 		function validateLogin() {
 			var userID = $('#userid').val();
