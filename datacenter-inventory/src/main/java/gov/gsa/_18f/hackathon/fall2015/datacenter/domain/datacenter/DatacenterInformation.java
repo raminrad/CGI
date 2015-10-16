@@ -20,4 +20,7 @@ public class DatacenterInformation extends BaseEntity {
 	@Column(name = "ageny_datacenter_id", nullable = false)
 	String agencyDataCenterId;
 
+	@Column(name = "legacy_id")
+	String legacyId;
+
 }

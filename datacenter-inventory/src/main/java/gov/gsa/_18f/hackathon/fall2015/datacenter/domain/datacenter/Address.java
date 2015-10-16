@@ -29,7 +29,7 @@ public class Address extends BaseValueObject {
 	@Column(nullable = false, length = 5)
 	String zip;
 
-	@Column
+	@Column(nullable = false)
 	String country;
 
 	@Override
