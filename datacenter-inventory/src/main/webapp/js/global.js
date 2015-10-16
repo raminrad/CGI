@@ -72,6 +72,11 @@ var endpoints = {
 			evt.preventDefault();
 			navigate('.contact-us');
 		});
+
+		$('.navbar-home').click(function(evt) {
+			evt.preventDefault();
+			navigate('.main-menu');
+		});
 		
 		function validateLogin() {
 			var userID = $('#userid').val();
